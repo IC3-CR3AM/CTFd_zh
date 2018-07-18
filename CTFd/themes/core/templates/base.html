@@ -92,7 +92,7 @@
 							<a class="nav-link" href="{{ request.script_root }}/team">Team</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/profile">Profile</a>
+							<a class="nav-link" href="{{ request.script_root }}/profile">个人资料</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ request.script_root }}/logout">Logout</a>
@@ -100,14 +100,14 @@
 					{% else %}
 						{% if can_register() %}
 							<li class="nav-item">
-								<a class="nav-link" href="{{ request.script_root }}/register">Register</a>
+								<a class="nav-link" href="{{ request.script_root }}/register">注册</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link d-none d-md-block d-lg-block">|</a>
 							</li>
 						{% endif %}
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/login">Login</a>
+							<a class="nav-link" href="{{ request.script_root }}/login">登陆</a>
 						</li>
 					{% endif %}
 				</ul>
