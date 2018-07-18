@@ -9,6 +9,6 @@ CTFd is a Capture The Flag framework focusing on ease of use and customizability
 ![CTFd is a CTF in a can.](https://github.com/CTFd/CTFd/blob/master/CTFd/themes/core/static/img/scoreboard.png?raw=true)
 
 ## CTFd_zh
-    * 基于CTFd原有平台模板进行优化
-    * 加入选择题选择题平台
-    * 整合和论坛与选择平台
+ * 基于CTFd原有平台模板进行优化
+ * 加入选择题选择题平台
+ * 整合和论坛与选择平台
