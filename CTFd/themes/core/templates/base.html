@@ -91,11 +91,11 @@
 					{% if username is defined %}
 						{% if admin %}
 							<li class="nav-item">
-								<a class="nav-link" href="{{ request.script_root }}/admin">后台</a>
+								<a class="nav-link" href="{{ request.script_root }}/admin">admin</a>
 							</li>
 						{% endif %}
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/team">团队</a>
+							<a class="nav-link" href="{{ request.script_root }}/team">{{ team.name }}</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ request.script_root }}/profile">个人资料</a>
@@ -129,9 +129,9 @@
 	<footer class="footer">
 		<div class="container text-center">
 			<a href="https://ctfd.io">
-				<small class="text-muted">Copyright &copy; Powered by CTFd 青工网安社区</small>
+				<small class="text-muted">Copyright &copy; Powered by CTFd</small>
 			</a>
-            <a herf="#">
+            <a href="#">
                 <small class="text-muted">青工网安社区</small>
             </a>
 		</div>
