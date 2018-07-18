@@ -22,7 +22,7 @@
 			<form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
 				<div class="form-group">
 					<label for="name-input">
-						队名
+						用户名
 					</label>
 					<input class="form-control" type="text" name="name" id="name-input" {% if name %}value="{{ name }}"{% endif %} />
 				</div>
@@ -40,7 +40,7 @@
 				</div>
 				<div class="row pt-3">
 					<div class="col-md-12">
-						<button type="submit" id="submit" tabindex="5" class="btn btn-md btn-primary btn-outlined float-right">Submit</button>
+						<button type="submit" id="submit" tabindex="5" class="btn btn-md btn-primary btn-outlined float-right">注册</button>
 					</div>
 				</div>
 				<input type="hidden" name="nonce" value="{{ nonce }}">
