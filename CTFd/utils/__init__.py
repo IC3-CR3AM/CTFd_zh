@@ -184,7 +184,7 @@ def init_utils(app):
             try:
                 db.session.commit()
             except (InvalidRequestError, IntegrityError) as e:
-                print(e.message)
+                print(e)
                 db.session.rollback()
                 session.clear()
 
