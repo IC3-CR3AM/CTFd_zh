@@ -20,7 +20,7 @@
 	{% if score_frozen %}
 	<div class="row">
 		<div class="col-md-12">
-			<h1 class="text-center">排行榜已经冻结.</h1>
+			<h1 class="text-center">排行榜已经冻结</h1>
 		</div>
 	</div>
 	{% endif %}
@@ -38,29 +38,33 @@
 				<thead>
 					<tr>
 						<td scope="col" width="100px"><b>排名</b></td>
-						<td scope="col"><b>队名</b></td>
+						<td scope="col"><b>用户</b></td>
 						<td scope="col"><b>分数</b></td>
                         <td scope="col"><b>通过数</b></td>
 					</tr>
 
 				</thead>
 				<tbody>
-                    <tr class="">
-						<td scope="col"><b>1</b></td>
+                {% for team in teams %}
+                    {% if team[1]== username %}
+                        <tr>
+						<td scope="col"><b>{{ loop.index }}</b></td>
 						<td scope="col">
                             <span class="badge badge-info">我</span>
                             <span><b>{{ username }}</b></span>
                         </td>
-						<td scope="col"><b>100</b></td>
-                        <td scope="col"><b>100</b></td>
+						<td scope="col"><b>{{ team[2] }}</b></td>
+                        <td scope="col"><b>{{ team[3] }}</b></td>
 					</tr>
+                    {% endif %}
+                {% endfor %}
 				{% for team in teams %}
 					<tr>
                     <!--scope="row" class="text-center"-->
 						<td>{{ loop.index }}</td>
 						<td><a href="{{ request.script_root }}/team/{{ team.teamid }}">{{ team.name | truncate(100) }}</a></td>
 						<td>{{ team.score }}</td>
-                        <td>{{ team.score }}</td>
+                        <td>{{ team.solves_count }}</td>
 					</tr>
 				{% endfor %}
 				</tbody>

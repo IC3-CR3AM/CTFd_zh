@@ -163,6 +163,7 @@ class Teams(db.Model):
     verified = db.Column(db.Boolean, default=False)
     admin = db.Column(db.Boolean, default=False)
     joined = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    solves_count = db.Column(db.Integer, default=0)
 
     def __init__(self, name, email, password):
         self.name = name

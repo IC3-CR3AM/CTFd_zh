@@ -31,6 +31,7 @@ def get_standings(admin=False, count=None):
         db.func.sum(Awards.value).label('score'),
         db.func.max(Awards.id).label('id'),
         db.func.max(Awards.date).label('date')
+
     )\
         .filter(Awards.value != 0)\
         .group_by(Awards.teamid)
@@ -47,7 +48,6 @@ def get_standings(admin=False, count=None):
     Combine awards and solves with a union. They should have the same amount of columns
     """
     results = union_all(scores, awards).alias('results')
-
     """
     Sum each of the results by the team id to get their score.
     """
@@ -71,7 +71,8 @@ def get_standings(admin=False, count=None):
         standings_query = db.session.query(
             Teams.id.label('teamid'),
             Teams.name.label('name'),
-            Teams.banned, sumscores.columns.score
+            Teams.banned, sumscores.columns.score,
+            Teams.solves_count
         )\
             .join(sumscores, Teams.id == sumscores.columns.teamid) \
             .order_by(sumscores.columns.score.desc(), sumscores.columns.id)
@@ -79,7 +80,8 @@ def get_standings(admin=False, count=None):
         standings_query = db.session.query(
             Teams.id.label('teamid'),
             Teams.name.label('name'),
-            sumscores.columns.score
+            sumscores.columns.score,
+            Teams.solves_count
         )\
             .join(sumscores, Teams.id == sumscores.columns.teamid) \
             .filter(Teams.banned == False) \
