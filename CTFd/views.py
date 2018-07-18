@@ -170,6 +170,11 @@ def private_team():
         return redirect(url_for('auth.login'))
 
 
+@views.route('/about', methods=['POST','GET'])
+def about():
+    return render_template('about.html')
+
+
 @views.route('/team/<int:teamid>', methods=['GET', 'POST'])
 def team(teamid):
     if utils.get_config('workshop_mode'):
@@ -309,3 +314,4 @@ def themes_handler(theme, path):
         return send_file(filename)
     else:
         abort(404)
+
