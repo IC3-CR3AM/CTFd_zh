@@ -88,11 +88,11 @@
 					{% if username is defined %}
 						{% if admin %}
 							<li class="nav-item">
-								<a class="nav-link" href="{{ request.script_root }}/admin">admin</a>
+								<a class="nav-link" href="{{ request.script_root }}/admin">管理面板</a>
 							</li>
 						{% endif %}
 						<li class="nav-item">
-							<a class="nav-link" href="{{ request.script_root }}/team">{{ username }}</a>
+							<a class="nav-link" href="{{ request.script_root }}/team">欢迎您，{{ username }}</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ request.script_root }}/profile">简介</a>
