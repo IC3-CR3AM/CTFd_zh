@@ -83,10 +83,10 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<td><b>Challenge</b></td>
-						<td class="d-none d-md-block d-lg-block"><b>Category</b></td>
-						<td><b>Value</b></td>
-						<td><b>Time</b></td>
+						<td><b>题目</b></td>
+						<td class="d-none d-md-block d-lg-block"><b>类别</b></td>
+						<td><b>分值</b></td>
+						<td><b>时间</b></td>
 					</tr>
 				</thead>
 				<tbody>
@@ -94,7 +94,7 @@
 					<tr>
 						<td><a href="{{ request.script_root }}/challenges#{{ solve.chal.name }}">{{ solve.chal.name }}</a></td>
 						<td class="d-none d-md-block d-lg-block">{{ solve.chal.category }}</td><td>{{ solve.chal.value }}</td>
-						<td class="solve-time"><script>document.write( moment({{ solve.date|unix_time_millis }}).local().format('MMMM Do, h:mm:ss A'))</script></td>
+						<td class="solve-time"><script>document.write( moment({{ solve.date|unix_time_millis }}).local().format('YYYY-MM-DD HH:mm:ss'))</script></td>
 					</tr>
 				{% endfor %}
 				</tbody>
