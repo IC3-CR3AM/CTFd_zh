@@ -647,7 +647,7 @@ def sendmail(addr, text):
         try:
             smtp = get_smtp(**data)
             msg = MIMEText(text)
-            msg['Subject'] = "Message from {0}".format(ctf_name)
+            msg['Subject'] = "【{0}】".format(ctf_name)
             msg['From'] = mailfrom_addr
             msg['To'] = addr
 
@@ -667,7 +667,7 @@ def sendmail(addr, text):
 def verify_email(addr):
     s = TimedSerializer(app.config['SECRET_KEY'])
     token = s.dumps(addr)
-    text = """Please click the following link to confirm your email address for {ctf_name}: {url}/{token}""".format(
+    text = """请点击这个连接确认您的邮件地址 : {url}/{token}""".format(
         ctf_name=get_config('ctf_name'),
         url=url_for('auth.confirm_user', _external=True),
         token=base64encode(token)

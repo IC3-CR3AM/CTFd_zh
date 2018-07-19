@@ -74,7 +74,16 @@ def confirm_user(data=None):
             if team.verified:
                 # If user is already verified, redirect to their profile
                 return redirect(url_for('views.profile'))
-            return render_template('confirm.html', team=team)
+            else:
+                utils.verify_email(team.email)
+                logger.warn("[{date}] {ip} - {username} initiated a confirmation email resend".format(
+                    date=time.strftime("%m/%d/%Y %X"),
+                    ip=utils.get_ip(),
+                    username=team.name.encode('utf-8'),
+                    email=team.email.encode('utf-8')
+                ))
+
+                return render_template('confirm.html', team=team,infos=['Your confirmation email has been resent!'])
 
 
 @auth.route('/reset_password', methods=['POST', 'GET'])

@@ -110,7 +110,7 @@ def custom_css():
 
 
 # Static HTML files
-
+@views.route("/", defaults={'template': 'index'})
 @views.route("/<path:template>")
 def static_html(template):
     page = utils.get_page(template)
