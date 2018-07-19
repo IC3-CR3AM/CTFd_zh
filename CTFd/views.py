@@ -110,7 +110,7 @@ def custom_css():
 
 
 # Static HTML files
-@views.route("/", defaults={'template': 'index'})
+
 @views.route("/<path:template>")
 def static_html(template):
     page = utils.get_page(template)
@@ -121,6 +121,11 @@ def static_html(template):
             return redirect(url_for('auth.login', next=request.path))
 
         return render_template('page.html', content=markdown(page.html))
+
+
+@views.route("/")
+def index():
+    return render_template("index.html")
 
 
 @views.route('/teams', defaults={'page': '1'})
@@ -170,7 +175,7 @@ def private_team():
         return redirect(url_for('auth.login'))
 
 
-@views.route('/about', methods=['POST','GET'])
+@views.route('/about', methods=['POST', 'GET'])
 def about():
     return render_template('about.html')
 
