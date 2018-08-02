@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/css/jumbotron.css">
 		<link rel="stylesheet" href="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/css/sticky-footer.css">
 		<link rel="stylesheet" href="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/css/base.css">
+		<link rel="stylesheet" href="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/css/nprogress.css">
 		<link rel="stylesheet" type="text/css" href="{{ request.script_root }}/static/user.css">
 		{% block stylesheets %}{% endblock %}
 		{% for stylesheet in get_registered_stylesheets() %}
@@ -33,7 +34,9 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <img class="img-responsive ctf_logo" src="{{ request.script_root }}/files/{{ ctf_logo() }}" height="25" alt="{{ ctf_name() }}">
+    {% if ctf_logo() %}
+        <img class="img-responsive ctf_logo" src="{{ request.script_root }}/files/{{ ctf_logo() }}" height="25" alt="{{ ctf_name() }}">
+    {% endif %}
 		<div class="container">
 			<a href="{{ request.script_root }}/" class="navbar-brand">
 				{{ ctf_name()}}
@@ -142,6 +145,11 @@
 	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/vendor/bootstrap.bundle.min.js"></script>
 	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/style.js"></script>
 	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/ezq.js"></script>
+	<script src="{{ request.script_root }}/themes/{{ ctf_theme() }}/static/js/nprogress.js"></script>
+    <script>
+    NProgress.start();
+    setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+    </script>
 	{% block scripts %}
 	{% endblock %}
 
