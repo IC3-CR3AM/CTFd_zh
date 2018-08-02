@@ -51,7 +51,7 @@
 						<td scope="col"><b>{{ loop.index }}</b></td>
 						<td scope="col">
                             <span class="badge badge-info">我</span>
-                            <span><b>{{ username }}</b></span>
+                            <span><a href="{{ request.script_root }}/team/{{ team.teamid }}"><b>{{ username }}</b></a></span>
                         </td>
 						<td scope="col"><b>{{ team[2] }}</b></td>
                         <td scope="col"><b>{{ team[3] }}</b></td>
