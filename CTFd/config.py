@@ -43,7 +43,7 @@ class Config(object):
     修改CTF_zh平台的数据库
     默认：os.environ.get('DATABASE_URL') or 'sqlite:///{}/ctfd.db'.format(os.path.dirname(os.path.abspath(__file__)))
     '''
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:808799@localhost/ctfb?charset=utf8mb4'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost/ctfb?charset=utf8mb4'
 
     '''
     SQLALCHEMY_TRACK_MODIFICATIONS is automatically disabled to suppress warnings and save memory. You should only enable
